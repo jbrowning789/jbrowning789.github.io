@@ -1,5 +1,8 @@
-title {
+h1 {
 	color: green;
 	font-family: Arial;
 	text-align: Center;
+}
+p {
+	font-family: Arial;
 }
