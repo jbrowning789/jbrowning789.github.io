@@ -9,23 +9,24 @@ Travel Distance App
 <body>
 <h1>Travel Distance</h1>
 <br>
-<p>Choose a Starting Location</p>
-<form>
+<div class="sidenav">
+	<p>Choose a Starting Location</p>
+	<form>
 	<input type="text" name="Search">
-</form>
-<p>Select Time of Day</p>
-<div class="slider">
-	<input type="range" min="6" max="21" class="slider" id="myRange">
+	</form>
+	<p>Select Time of Day</p>
+	<div class="slider">
+		<input type="range" min="6" max="21" class="slider" id="myRange">
+	</div>
+	<p>Select Travel Times</p>
+	<form>
+		<input type="checkbox" value="10 min"> 10 min<br>
+		<input type="checkbox" value="15 min"> 15 min<br>
+		<input type="checkbox" value="30 min"> 30 min<br>
+		<input type="checkbox" value="60 min"> 60 min<br>
+	</form>
+	<button type="button">Calculate</button>
 </div>
-<p>Select Travel Times</p>
-<form>
-	<input type="checkbox" value="10 min"> 10 min<br>
-	<input type="checkbox" value="15 min"> 15 min<br>
-	<input type="checkbox" value="30 min"> 30 min<br>
-	<input type="checkbox" value="60 min"> 60 min<br>
-</form>
-<button type="button">Calculate</button>
-	
 
 <article>
 <h1>This is where the map will be.</h1>
