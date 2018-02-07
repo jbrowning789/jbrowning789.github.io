@@ -27,9 +27,43 @@ Unit Conversion
     <option value="kilometers">kilometers</option>
     </select>
   
-<script language = javascript>
+  <p>Distance to be Converted:</p>
+	<form>
+	<input type="number" id="Distance">
+	</form>
+
+  <script language = javascript>
   var e = document.getElementById("DropInput");
   var DropInput = e.options[e.selectedIndex].value;
   var e = document.getElementById("DropOutput");
   var DropOutput = e.options[e.selectedIndex].value;
-  
+  var e = document.getElementById("Distance");
+  var OutDist = "OutDist";
+  function myFunc(OutDist) {
+    if (DropInput == 'inches') {
+      OutDist = OutDist / 12
+    } else if (DropInput == 'yards') {
+      OutDist = OutDist * 3
+    } else if (DropInput == 'miles') {
+      OutDist = OutDist * 5280
+    } else if (DropInput == 'kilometers') {
+      OutDist = OutDist * 3280.84
+    } else if (DropInput == 'meters') {
+      OutDist = OutDist * 3.28084
+    }
+    if (DropOutput == 'inches') {
+      OutDist = OutDist * 12
+    } else if (DropOutput == 'yards') {
+      OutDist = OutDist / 3
+    } else if (DropOutput == 'miles') {
+      OutDist = OutDist / 5280
+    } else if (DropOutput == 'kilometers') {
+      OutDist = OutDist / 3280.84
+    } else if (DropOutput == 'meters') {
+      OutDist = OutDist / 3.28084
+    }
+  document.write(OutDist)
+  }
+  </script>
+  <input type=button value="Convert" onClick="myFunc();" >
+ </body>
