@@ -62,8 +62,10 @@ Unit Conversion
     } else if (DropOutput == 'meters') {
       OutDist = OutDist / 3.28084
     }
-  document.write(OutDist)
+  document.getElementById("OutDist") = OutDist
   }
   </script>
   <input type=button value="Convert" onClick="myFunc();" >
+	<p id="OutDist"></p>
  </body>
+</html>
