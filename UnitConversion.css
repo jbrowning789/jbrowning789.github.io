@@ -1,8 +1,12 @@
+body {
+  background-color: green;
+  text-align: center;
+}
 h1 {
   color: white;
 }
 background-color: green;
 p {
-  color:white:
+  color:white;
 }
-text-align: center;
+
