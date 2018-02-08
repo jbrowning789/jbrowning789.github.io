@@ -33,13 +33,13 @@ Unit Conversion
 	</form>
 
   <script language = javascript>
+  
+  function myFunc(OutDist) {
   var e = document.getElementById("DropInput");
   var DropInput = e.options[e.selectedIndex].value;
   var e = document.getElementById("DropOutput");
   var DropOutput = e.options[e.selectedIndex].value;
-  var e = document.getElementById("Distance");
-  var OutDist = "OutDist";
-  function myFunc(OutDist) {
+  var OutDist = document.getElementById("Distance").value;
     if (DropInput == 'inches') {
       OutDist = OutDist / 12
     } else if (DropInput == 'yards') {
@@ -62,7 +62,7 @@ Unit Conversion
     } else if (DropOutput == 'meters') {
       OutDist = OutDist / 3.28084
     }
-  document.getElementById("OutDist") = OutDist
+  document.getElementById("OutDist").innerHTML = OutDist
   }
   </script>
   <input type=button value="Convert" onClick="myFunc();" >
