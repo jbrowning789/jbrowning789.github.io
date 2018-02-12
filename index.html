@@ -31,14 +31,14 @@
 			var map = new Map({
 				basemap: "streets"
 			});
-			//var rast_layer = new MapImageLayer({
-			//	url: "http://geoserver2.byu.edu/arcgis/rest/services/Geoids/RoadsRaster/MapServer"
-			//});
-			//var vect_layer = new MapImageLayer({
-			//	url: "http://geoserver2.byu.edu/arcgis/rest/services/Geoids/UtahAADT/MapServer"
-			//});
-			//map.layers.add(rast_layer);
-			//map.layers.add(vect_layer);
+			var rast_layer = new MapImageLayer({
+				url: "http://geoserver2.byu.edu/arcgis/rest/services/Geoids/RoadsRaster/MapServer"
+			});
+			var vect_layer = new MapImageLayer({
+				url: "http://geoserver2.byu.edu/arcgis/rest/services/Geoids/UtahAADT/MapServer"
+			});
+			map.layers.add(rast_layer);
+			map.layers.add(vect_layer);
 			
 			var view = new MapView({
 				container: "viewDiv",
