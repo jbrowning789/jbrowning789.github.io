@@ -1,35 +1,62 @@
+<!DOCTYPE html>
 <html>
 <head>
-<link href="./josephgeoid.css" type="text/css" rel="stylesheet">
-<title>
-Travel Distance App
-
-</title>
+	<link rel="stylesheet" href="https://js.arcgis.com/4.6/esri/css/main.css">
+	<script src="https://js.arcgis.com/4.6/"></script>
+	<style>
+		 html, body, #viewDiv {
+			padding: 0;
+			margin: 0;
+			height: 100%;
+			width: 100%;
+		  }
+		h1 {
+		color: green;
+		font-family: Arial;
+		text-align: Center;
+		}
+		p {
+		font-family: Arial;
+		text-align: Center;
+		}
+	background-color: lightgreen;
+	</style>
+	<script language="javascript">
+		require([
+			"esri/Map",
+			"esri/layers/MapImageLayer",
+			"esri/views/MapView",
+			"dojo/domReady!"
+		], function(Map, MapImageLayer, MapView){
+			var map = new Map({
+				basemap: "streets"
+			});
+			//var rast_layer = new MapImageLayer({
+			//	url: "http://geoserver2.byu.edu/arcgis/rest/services/Geoids/RoadsRaster/MapServer"
+			//});
+			//var vect_layer = new MapImageLayer({
+			//	url: "http://geoserver2.byu.edu/arcgis/rest/services/Geoids/UtahAADT/MapServer"
+			//});
+			//map.layers.add(rast_layer);
+			//map.layers.add(vect_layer);
+			
+			var view = new MapView({
+				container: "viewDiv",
+				map: map,
+				center: [-111.1, 39.1],
+				zoom: 6
+			});
+		});
+	</script>
+	<title>
+	514 Map Sample
+	</title>
 </head>
 <body>
-<h1>Travel Distance</h1>
-<hr>
-<div class="sidenav">
-	<p>Choose a Starting Location</p>
-	<form>
-	<input type="text" name="Search">
-	</form>
-	<p>Select Time of Day</p>
-	<div class="slider">
-		<input type="range" min="6" max="21" class="slider" id="myRange">
-	</div>
-	<p>Select Travel Times</p>
-	<form>
-		<input type="checkbox" value="10 min"> 10 min<br>
-		<input type="checkbox" value="15 min"> 15 min<br>
-		<input type="checkbox" value="30 min"> 30 min<br>
-		<input type="checkbox" value="60 min"> 60 min<br>
-	</form>
-	<button type="button">Calculate</button>
-</div>
-
-<article>
-<img src="https://www.udot.utah.gov/main/uconowner.gf?n=5346623324189870">
-</article>
+	<h1>Geoids Vector and Raster Map</h1>
+	<p>Joseph Browning</p>
+	<p>CEEn 514</p>
+	<p>2/13/18</p>
+	<div id="viewDiv"></div>
 </body>
 </html>
