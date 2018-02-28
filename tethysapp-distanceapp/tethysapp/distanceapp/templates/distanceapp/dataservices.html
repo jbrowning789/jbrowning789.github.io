@@ -1,0 +1,10 @@
+{% extends "distanceapp/base.html" %}
+
+{% block app_content %}
+<h1>Data Services</h1>
+<p>Both the vector and the raster file were created from files available from the UDOT Open Data Portal. The vector file comes from the most recent AADT
+data available, and the raster file comes from a road network file that was originally a vector file, but was rasterized using ArcGIS software.
+The data is being hosted on a BYU geoserver site, at http://www.arcgis.com/home/webmap/viewer.html?url=http%3A%2F%2Fgeoserver2.byu.edu%2Farcgis%2Frest%2Fservices%2FGeoids%2FRoadsRaster%2FMapServer&source=sd
+for the raster file and at http://www.arcgis.com/home/webmap/viewer.html?url=http%3A%2F%2Fgeoserver2.byu.edu%2Farcgis%2Frest%2Fservices%2FGeoids%2FUtahAADT%2FMapServer&source=sd
+for the vector file.</p>
+{% endblock %}

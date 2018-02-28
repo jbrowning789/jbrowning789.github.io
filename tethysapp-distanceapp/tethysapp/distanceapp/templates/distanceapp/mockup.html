@@ -1,0 +1,15 @@
+{% extends "distanceapp/base.html" %}
+{% load staticfiles %}
+
+{% block app_content %}
+<h1>Mockup Diagrams</h1>
+
+<h2>Information</h2>
+<img src="{% static '/distanceapp/images/Info.png' %}">
+<h2>Map</h2>
+<img src="{% static '/distanceapp/images/Map.png' %}">
+<h2>Table</h2>
+<img src="{% static '/distanceapp/images/Table.png' %}">
+<h2>Elevation</h2>
+<img src="{% static '/distanceapp/images/Elevation.png' %}">
+{% endblock %}

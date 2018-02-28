@@ -1,0 +1,97 @@
+{% extends "distanceapp/base.html" %}
+
+{% block app_content %}
+<html>
+<head>
+	<link rel="stylesheet" href="https://js.arcgis.com/4.6/esri/css/main.css">
+	<script src="https://js.arcgis.com/4.6/"></script>
+	<style>
+		 html, body, #viewDiv {
+			padding: 0;
+			margin: 0;
+			height: 100%;
+			width: 100%;
+		  }
+        #viewDiv {
+            height: 700px;
+            }
+		h1 {
+		color: green;
+		font-family: Arial;
+		text-align: Center;
+		}
+		p {
+		font-family: Arial;
+		text-align: Center;
+		}
+	background-color: lightgreen;
+	</style>
+	<script language="javascript">
+		require([
+			"esri/Map",
+			"esri/layers/MapImageLayer",
+			"esri/layers/FeatureLayer",
+			"esri/views/MapView",
+			"dojo/dom",
+			"dojo/on",
+			"dojo/domReady!"
+		], function(Map, MapImageLayer, FeatureLayer, MapView, dom, on){
+			var map = new Map({
+				basemap: "streets"
+			});
+			var rast_layer = new MapImageLayer({
+				url: "http://geoserver2.byu.edu/arcgis/rest/services/Geoids/RoadsRaster/MapServer"
+			});
+			var template = {
+				title: "Highway AADT",
+				content: "<ul><li>Route Name: {ROUTE}</ul></li>" +
+					"<ul><li>AADT: {AADT2015}</ul></li>",
+				fieldInfos: [{
+					fieldName: "AADT2015",
+					format: {
+						digitSeparator: true,
+						places: 0
+					}
+				}]
+			};
+			var vect_layer = new FeatureLayer({
+				url: "http://geoserver2.byu.edu/arcgis/rest/services/Geoids/UtahAADT/MapServer",
+				outFields: ["*"],
+				popupTemplate: template
+			});
+			map.layers.add(rast_layer);
+			map.layers.add(vect_layer);
+
+			var view = new MapView({
+				container: "viewDiv",
+				map: map,
+				center: [-111.1, 39.1],
+				zoom: 6
+			});
+
+			var vectLyrToggle = dom.byId("vect");
+				on(vectLyrToggle, "change", function(){
+				vect_layer.visible = vectLyrToggle.checked;
+			});
+			var rastLyrToggle = dom.byId("rast");
+				on(rastLyrToggle, "change", function(){
+				rast_layer.visible = rastLyrToggle.checked;
+			});
+		});
+	</script>
+	<title>
+	514 Map Sample
+	</title>
+</head>
+<h1>Map View</h1>
+
+
+<body>
+	<div id="check">
+		<input type="checkbox" id="vect" checked>Vector Layer
+		<input type="checkbox" id="rast" checked>Raster Layer
+	</div>
+	<div id="viewDiv"></div>
+</body>
+</html>
+{% endblock %}
