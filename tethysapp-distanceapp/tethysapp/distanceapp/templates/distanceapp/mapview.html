@@ -1,4 +1,5 @@
 {% extends "distanceapp/base.html" %}
+{% load tethys_gizmos %}
 
 {% block app_content %}
 <html>
@@ -91,6 +92,9 @@
 		<input type="checkbox" id="vect" checked>Vector Layer
 		<input type="checkbox" id="rast" checked>Raster Layer
 	</div>
+	{% gizmo slider1 %}
+	{% gizmo text_input %}
+	{% gizmo map_button %}
 	<div id="viewDiv"></div>
 </body>
 </html>
