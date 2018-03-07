@@ -8,10 +8,10 @@ class Distanceapp(TethysAppBase):
 
     name = 'Travel Time Distance Map'
     index = 'distanceapp:home'
-    icon = 'distanceapp/images/icon.gif'
+    icon = 'distanceapp/images/car.jpg'
     package = 'distanceapp'
     root_url = 'distanceapp'
-    color = '#add8e6'
+    color = '#004225'
     description = 'This app shows how far vehicles can travel along any route through a road network in a given amount of time.'
     tags = '&quot;Transportation&quot;,&quot;Travel Times&quot;,&quot;Road Network&quot;'
     enable_feedback = False
